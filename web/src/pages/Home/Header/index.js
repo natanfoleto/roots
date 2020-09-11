@@ -9,7 +9,7 @@ function Header() {
     <Container>
       <Content>
         <nav>
-          <Link to="/home">ROOTS</Link>
+          <Link to="/">ROOTS</Link>
         </nav>
 
         <Form initialData="" onSubmit="" autoComplete="off">

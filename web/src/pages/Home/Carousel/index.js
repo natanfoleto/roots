@@ -17,9 +17,8 @@ function BCarousel() {
         <Carousel.Item style={carouselItem}>
           <img
             className="d-block w-100"
-            src="https://s2.best-wallpaper.net/wallpaper/1920x1080/1801/Lovers-happy-man-and-woman_1920x1080.jpg"
+            src="https://image.winudf.com/v2/image1/Y29tLm1vYmlsZXVuaXZlcnNpdHkucHN5Y2hlZGVtaWNfc2NyZWVuXzFfMTU0NDU0MDU5NV8wNDE/screen-1.jpg?fakeurl=1&type=.jpg"
             alt="First slide"
-            
           />
           <Carousel.Caption>
             <h3>Primeiro título</h3>
@@ -30,7 +29,7 @@ function BCarousel() {
         <Carousel.Item style={carouselItem}>
           <img
             className="d-block w-100"
-            src="https://mfiles.alphacoders.com/802/802100.jpg"
+            src="https://4.bp.blogspot.com/-EFQEXmmdBXo/XKG5Noll6xI/AAAAAAAABGw/2epUYa2fuEUzCK0Q9J4ncAr88cG5Q2XSQCKgBGAs/w914-h514-p-k-no-nu/space-astronaut-sci-fi-uhdpaper.com-4K-111.jpg"
             alt="Third slide"
           />
 
@@ -43,7 +42,7 @@ function BCarousel() {
         <Carousel.Item style={carouselItem}>
           <img
             className="d-block w-100"
-            src="https://http2.mlstatic.com/roupa-tumblr-blusa-feminina-camiseta-baby-look-tshirt-barato-D_NQ_NP_950708-MLB28974402047_122018-F.jpg"
+            src="https://images.hdqwalls.com/wallpapers/spiderman-miles-lost-in-space-4k-0f.jpg"
             alt="Third slide"
           />
 
