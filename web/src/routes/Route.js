@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Route, Redirect } from 'react-router-dom';
 
-import AuthLayout from '../pages/_layouts/auth';
 import DefaultLayout from '../pages/_layouts/default';
 
 export default function RouteWrapper({
@@ -20,7 +19,7 @@ export default function RouteWrapper({
     return <Redirect to="/dashboard"/>;
   }
 
-  const Layout = signed ? DefaultLayout : AuthLayout;
+  const Layout = DefaultLayout;
 
   return <Route {...rest} 
     render={props => (

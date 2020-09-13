@@ -24,4 +24,17 @@ export const Content = styled.div`
       text-decoration: none;
     }
   }
+
+  @media (max-width: 900px) {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 0 15px 0;
+    height: auto;
+
+    nav {
+      a {
+        margin: 5px 0 5px 0;
+      }
+    }
+  }
 `;

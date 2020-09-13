@@ -18,7 +18,9 @@ function Header() {
 
         <aside>
           <LogIn>
-            <button>Entrar</button>
+            <Link to="/login">
+              <button>Entrar</button>
+            </Link>
           </LogIn>
         </aside>
       </Content>

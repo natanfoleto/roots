@@ -42,6 +42,27 @@ export const Content = styled.div`
     display: flex;
     align-items: center;
   }
+
+  @media (max-width: 900px) {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 0 15px 0;
+    height: auto;
+
+    nav {
+      margin: 0 0 10px 0;
+    }
+
+    input {
+      margin: 0 0 15px 0;
+    }
+  }
+
+  @media (max-width: 380px) {
+    input {
+      display: none;
+    }
+  }
 `;
 
 export const LogIn = styled.div`
