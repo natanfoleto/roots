@@ -7,10 +7,12 @@ import DataTable from './Table';
 
 export default function Clients() {
   return (
-    <Container>
+    <>
       <Header />
-      <DataTable />
 
-    </Container>
+      <Container>
+        <DataTable />
+      </Container>
+    </>
   );
 }

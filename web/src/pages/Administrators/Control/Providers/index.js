@@ -3,13 +3,16 @@ import React from 'react';
 import { Container } from './styles';
 
 import Header from '../../../../components/Administrators/Header';
+import DataTable from './Table';
 
 export default function Providers() {
   return (
-    <Container>
+    <>
       <Header />
 
-      <h1>FORNECEDORES</h1>
-    </Container>
+      <Container>
+        <DataTable />
+      </Container>
+    </>
   );
 }

@@ -35,7 +35,7 @@ export default function Table() {
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
 
         <MaterialTable
-          title="Clientes"
+          title="Fornecedores"
           columns={columns}
           data={data}
           actions={[
