@@ -8,8 +8,7 @@ export default function Products() {
   return (
     <Container>
       <Header />
-
-      <h1>PRODUTOS</h1>
+      
     </Container>
   );
 }
