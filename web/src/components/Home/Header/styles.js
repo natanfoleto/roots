@@ -7,7 +7,7 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  height: 64px;
+  height: 85px;
   max-width: 900px;
   margin: 0 auto;
   display: flex;
@@ -20,7 +20,7 @@ export const Content = styled.div`
 
     a {
       font-weight: bold;
-      font-size: 32px;
+      font-size: 40px;
       color: #FFF;
       text-decoration: none;
     }
@@ -29,7 +29,7 @@ export const Content = styled.div`
   input {
     border: 0;
     border-radius: 25px;
-    height: 28px;
+    height: 36px;
     width: 350px;
     padding: 0 15px;
 
@@ -38,9 +38,19 @@ export const Content = styled.div`
     }
   }
 
-  aside {
-    display: flex;
-    align-items: center;
+  button {
+    height: 36px;
+    padding: 0 15px 0 15px;
+    outline: 0;
+    background: #fff;
+    color: #FF6702;
+    border: 1px solid #eee;
+    border-radius: 24px;
+    transition: background 0.2s;
+
+    &:hover {
+      background: ${darken(0.08, '#fff')};
+    }
   }
 
   @media (max-width: 900px) {
@@ -61,25 +71,6 @@ export const Content = styled.div`
   @media (max-width: 380px) {
     input {
       display: none;
-    }
-  }
-`;
-
-export const LogIn = styled.div`
-  display: flex;
-
-  button {
-    height: 28px;
-    padding: 0 15px 0 15px;
-    outline: 0;
-    background: #fff;
-    color: #FF6702;
-    border: 1px solid #eee;
-    border-radius: 2px;
-    transition: background 0.2s;
-
-    &:hover {
-      background: ${darken(0.08, '#fff')};
     }
   }
 `;

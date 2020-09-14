@@ -28,9 +28,9 @@ function Footer() {
         <div>
           <h1> Começe Já </h1>
 
-          <p> Seja um membro agora. </p>
+          <p> Seja um cliente agora. </p>
 
-          <Link to="/register">
+          <Link to="/register/client">
             <button>Cadastre-se</button>
           </Link>          
         </div>

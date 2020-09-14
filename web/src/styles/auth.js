@@ -59,10 +59,24 @@ export const Content = styled.div`
       color: #000;
       margin-top: 5px;
       font-size: 16px;
+      text-decoration: none;
 
       &:hover {
         opacity: 0.8;
       }
+    }
+  }
+`;
+
+export const Back = styled.div`
+  margin-top: 70px;
+
+  nav {
+    a {
+      font-size: 20px;
+      font-weight: bold;
+      color: #FF6702;
+      text-decoration: none;
     }
   }
 `;

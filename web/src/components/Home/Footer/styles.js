@@ -3,7 +3,7 @@ import { darken } from 'polished';
 
 export const Container = styled.div`
   background: #FF6702;
-  padding: 30px 30px;
+  padding: 70px 30px;
   height: auto;
   margin: 10px 0 0 0;
   
@@ -30,15 +30,16 @@ export const Info = styled.div`
     max-width: 400px;
     margin: 0 50px 0 50px;
     
-
     h1 {
-      font-size: 20px;
+      font-size: 26px;
       padding-bottom: 10px;
       border-bottom: 2px solid #fff; 
       margin-bottom: 15px;
+      color: #eee;
     }
 
     p {
+      color: #eee;
       margin-bottom: 5px; 
     }
 
@@ -88,7 +89,7 @@ export const Social = styled.p`
 `;
 
 export const Copyright = styled.div`
-  color: #fff;
+  color: #eee;
   font-size: 14px;
   margin-top: 15px
 `;

@@ -17,7 +17,7 @@ function BCarousel() {
         <Carousel.Item style={carouselItem}>
           <img
             className="d-block w-100"
-            src="https://image.winudf.com/v2/image1/Y29tLm1vYmlsZXVuaXZlcnNpdHkucHN5Y2hlZGVtaWNfc2NyZWVuXzFfMTU0NDU0MDU5NV8wNDE/screen-1.jpg?fakeurl=1&type=.jpg"
+            src="https://cdn.dicionariopopular.com/imagens/image-53.jpg"
             alt="First slide"
           />
           <Carousel.Caption>
@@ -29,7 +29,7 @@ function BCarousel() {
         <Carousel.Item style={carouselItem}>
           <img
             className="d-block w-100"
-            src="https://4.bp.blogspot.com/-EFQEXmmdBXo/XKG5Noll6xI/AAAAAAAABGw/2epUYa2fuEUzCK0Q9J4ncAr88cG5Q2XSQCKgBGAs/w914-h514-p-k-no-nu/space-astronaut-sci-fi-uhdpaper.com-4K-111.jpg"
+            src="https://casaefesta.com/wp-content/uploads/2020/01/tons-de-verde-01-1.jpg"
             alt="Third slide"
           />
 
@@ -42,7 +42,7 @@ function BCarousel() {
         <Carousel.Item style={carouselItem}>
           <img
             className="d-block w-100"
-            src="https://images.hdqwalls.com/wallpapers/spiderman-miles-lost-in-space-4k-0f.jpg"
+            src="https://www.remocamisetas.com.br/img/portfolio/grid/goiaba.png"
             alt="Third slide"
           />
 

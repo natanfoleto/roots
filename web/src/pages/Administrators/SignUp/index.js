@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 
-import { Wrapper, Content } from '../../styles/auth';
+import { Wrapper, Content, Back } from '../../../styles/auth';
 
 export default function SignUp() {
   return (
@@ -58,7 +58,13 @@ export default function SignUp() {
 
             <button type="submit">Cria conta</button>
 
-            <Link to="/login">Já tem conta?</Link>
+            <Link to="/login/adm">Já tem conta?</Link>
+
+            <Back>
+              <nav>
+                <Link to="/choose">🡨 MUDAR TIPO DE LOGIN </Link>
+              </nav>
+            </Back>
           </Form>
         </Content>
       </Wrapper>

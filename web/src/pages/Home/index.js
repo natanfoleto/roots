@@ -2,11 +2,11 @@ import React from 'react';
 
 import { Container, Products } from './styles';
 
-import Header from './Header';
-import Carousel from './Carousel';
-import Menu from './Menu';
-import Product from './Product';
-import Footer from './Footer';
+import Header from '../../components/Home/Header';
+import Carousel from '../../components/Home/Carousel';
+import Menu from '../../components/Home/Menu';
+import Product from '../../components/Home/Product';
+import Footer from '../../components/Home/Footer';
 
 export default function Home() {
   return (

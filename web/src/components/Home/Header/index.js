@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 
-import { Container, Content, LogIn } from './styles';
+import { Container, Content } from './styles';
 
 function Header() {
   return (
@@ -16,13 +16,9 @@ function Header() {
           <Input name="search" placeholder="O que você procura?" />
         </Form>
 
-        <aside>
-          <LogIn>
-            <Link to="/login">
-              <button>Entrar</button>
-            </Link>
-          </LogIn>
-        </aside>
+        <Link to="/choose">
+          <button>Entrar</button>
+        </Link>
       </Content>
     </Container>
   );

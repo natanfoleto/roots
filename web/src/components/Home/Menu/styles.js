@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { darken } from 'polished';
 
 export const Container = styled.div`
   background: #FF6702;
@@ -6,7 +7,7 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  height: 44px;
+  height: 60px;
   max-width: 900px;
   margin: 0 auto;
   display: flex;
@@ -19,9 +20,13 @@ export const Content = styled.div`
 
     a {
       font-weight: bold;
-      font-size: 14px;
+      font-size: 16px;
       color: #FFF;
       text-decoration: none;
+
+      &:hover {
+        color: ${darken(0.08, '#fff')};
+      }
     }
   }
 
