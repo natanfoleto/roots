@@ -3,9 +3,9 @@ import { persistReducer } from 'redux-persist';
 
 export default reducers => {
   const persistedReducer = persistReducer({
-    key: 'gorecicle',
+    key: 'roots',
     storage,
-    whitelist: ['auth', 'collector'],
+    whitelist: ['auth', 'user'],
   }, reducers);
   
   return persistedReducer;

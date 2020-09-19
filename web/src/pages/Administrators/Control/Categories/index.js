@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { Container } from './styles';
+import { Container, Menu } from '../../../../styles/Administrators/control';
+
+import AddIcon from '@material-ui/icons/Add';
 
 import Header from '../../../../components/Administrators/Header';
 import DataTable from './Table';
@@ -11,6 +13,12 @@ export default function Categories() {
       <Header />
 
       <Container>
+        <Menu>
+          <button>
+            <AddIcon />
+          </button>
+        </Menu>
+
         <DataTable />
       </Container>
     </>

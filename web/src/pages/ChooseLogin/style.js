@@ -12,6 +12,12 @@ export const Wrapper = styled.div`
   h1 {
     font-size: 28px;
   }
+
+  @media (max-width: 450px) {
+    h1 {
+      font-size: 22px;
+    }
+  }
 `;
 
 export const Content = styled.div`
@@ -33,6 +39,10 @@ export const Content = styled.div`
     &:hover {
       background: ${darken(0.07, '#FF6702')};
     }
+  }
+
+  @media (max-width: 450px) {
+    flex-direction: column;
   }
 `;
 

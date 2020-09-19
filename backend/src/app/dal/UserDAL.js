@@ -3,11 +3,19 @@ import User from '../models/User';
 import UserBuilded from '../builders/UserBuilder';
 
 class UserDAL {
-  async findByEmail() {
+  async findByEmail(email) {
     try {
-      const user = await User.findOne({ 
-        where: { email: UserBuilded.getEmail() }
-      });
+      let user;
+
+      if (email) {
+        user = await User.findOne({ 
+          where: { email: email }
+        });
+      } else {
+        user = await User.findOne({ 
+          where: { email: UserBuilded.getEmail() }
+        });
+      }
   
       if (user) {
         return user;

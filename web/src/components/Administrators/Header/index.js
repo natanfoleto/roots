@@ -1,9 +1,12 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { Container, Content, Profile } from './styles';
 
 function Header() {
+  const profile = useSelector(state => state.user.profile);
+
   return (
     <Container>
       <Content>
@@ -21,7 +24,7 @@ function Header() {
         <aside>
           <Profile>
             <div>
-              <strong>Natan Foleto</strong>
+              <strong>{profile.nome}</strong>
               <Link to="/profile/adm">Meu perfil</Link>
             </div>
           </Profile>

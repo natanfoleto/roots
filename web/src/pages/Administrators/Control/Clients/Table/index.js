@@ -4,7 +4,7 @@ import MaterialTable from 'material-table';
 
 import MenuOpenIcon from '@material-ui/icons/MenuOpen';
 
-import { Container, Button } from '../../../../../styles/table.js';
+import { Container, Button } from '../../../../../styles/Administrators/table.js';
 
 export default function Table() {
   const columns = [

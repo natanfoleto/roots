@@ -13,10 +13,24 @@ export const Content = styled.div`
   justify-content: space-between;
   align-items: center;
 
+  @media (max-width: 950px) {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   nav {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+
+    @media (max-width: 950px) {
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
     header {
       display: flex;
@@ -24,12 +38,17 @@ export const Content = styled.div`
       padding-right: 30px;
       border-right: 2px solid rgba(255, 255, 255, 0.5);
 
+      @media (max-width: 950px) {
+        padding: 0;
+        border: 0;
+      }
+
       a {
         margin: 0;
         font-weight: bold;
         font-size: 30px;
         color: #FFF;
-        text-decoration: none;
+        text-decoration: none; 
       }
     }
 
@@ -44,6 +63,10 @@ export const Content = styled.div`
       &&:hover {
         color: ${darken(0.08, '#fff')};
       }
+
+      @media (max-width: 950px) {
+        margin: 10px 0;
+      }
     }    
   }
 `;
@@ -54,21 +77,38 @@ export const Profile = styled.div`
   padding-left: 20px;
   border-left: 2px solid rgba(255, 255, 255, 0.5);
 
+  @media (max-width: 950px) {
+    display: flex;
+    justify-content: center;
+    margin-left: 0;
+    padding-top: 10px;
+    border-top: 2px solid rgba(255, 255, 255, 0.5);
+    border-left: 0;
+  }
+
   div {
     text-align: right;
     margin-right: 10px;
 
     strong {
       display: block;
-      color: #fff;
+      color: #0038BA;
+
+      @media (max-width: 950px) {
+        display: none;
+      }
     }
 
     a {
       display: block;
       margin-top: 2px;
       font-size: 12px;
-      color: #000;
+      color: #eee;
       text-decoration: none;
+
+      @media (max-width: 950px) {
+        margin-bottom: 10px;
+      }
     }
   }
 `;

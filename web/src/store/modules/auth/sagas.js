@@ -1,8 +1,8 @@
 import { takeLatest, call, put, all } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
 
-import history from '~/services/history';
-import api from '~/services/api';
+import history from '../../../services/history';
+import api from '../../../services/api';
 
 import { signInSuccess, signUpSuccess, signFailure } from './actions';
 
@@ -37,19 +37,19 @@ export function* signIn({ payload }) {
       password
     });
 
-    const { token, collector } = response.data;
+    const { token, user } = response.data;
 
-    if (!collector) {
-      displayToast('Usuário não é um ponto de coleta!'); 
+    if (!user) {
+      displayToast('Usuário não é um administrador!'); 
       yield put(signFailure());
       return;
     }
 
     api.defaults.headers.Authorization = `Bearer ${token}`;
 
-    yield put(signInSuccess(token, collector));
+    yield put(signInSuccess(token, user));
 
-    history.push('/dashboard');
+    history.push('/control');
   } catch (err) {
     displayToast('Falha na autenticação, verifique seus dados'); 
     yield put(signFailure());
@@ -59,37 +59,25 @@ export function* signIn({ payload }) {
 export function* signUp({ payload }) {
   try {
     const { 
-      name, 
-      email, 
-      password, 
-      latitude, 
-      longitude, 
-      entity, 
-      telephone, 
-      whatsapp,
-      site,
-      materials,
+      nome,
+      cpf,
+      data_nasc,
+      email,
+      password      
     } = payload.data;
 
-    yield call(api.post, 'collectors', {
-      name, 
-      email, 
-      password, 
-      latitude, 
-      longitude, 
-      entity, 
-      telephone, 
-      whatsapp,
-      site,
-      materials,
+    yield call(api.post, 'users', {
+      nome,
+      cpf,
+      data_nasc,
+      email,
+      password
     });
 
     yield put(signUpSuccess());
-
-    history.push('/');
   } catch (err) {
     console.log(err);
-    displayToast('Falha no cadastro, verifique seus dados'); 
+    displayToast('Falha no cadastro, verifique os dados'); 
     yield put(signFailure());
   }
 }

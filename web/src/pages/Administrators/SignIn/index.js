@@ -1,15 +1,19 @@
 import React from 'react';
 
-import history from '../../../services/history';
-
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 
-import { Wrapper, Content, Back } from '../../../styles/auth';
+import { signInRequest } from '../../../store/modules/auth/actions';
+
+import { Wrapper, Content, Back } from '../../../styles/Auth/auth';
 
 export default function SignIn() {
-  function handleSubmit() {
-    history.push('/control');
+  const dispatch = useDispatch();
+  const loading = useSelector(state => state.auth.loading);
+  
+  function handleSubmit({ email, password }) {
+    dispatch(signInRequest(email, password));
   }
 
   return (
@@ -24,15 +28,18 @@ export default function SignIn() {
               type="email" 
               placeholder="Seu e-mail" 
               autoComplete="off" 
+              required
+              value="natanfoleto@hotmail.com"
             />
             <Input 
               name="password" 
               type="password" 
               placeholder="Sua senha" 
               autoComplete="off" 
+              required
             />
 
-            <button type="submit">Acessar</button>
+            <button type="submit">{ loading ? 'Carregando...' : 'Acessar' }</button>
 
             <Back>
               <nav>
