@@ -1,31 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import MaterialTable from 'material-table';
+
+import history from '../../../../../services/history';
 
 import MenuOpenIcon from '@material-ui/icons/MenuOpen';
 
 import { Container, Button } from '../../../../../styles/Administrators/table.js';
 
+import api from '../../../../../services/api';
+
 export default function Table() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    async function loadProducts() {
+      const response = await api.get('/products');
+  
+      setProducts(response.data);
+    }
+
+    loadProducts();
+  }, []);
+
   const columns = [
     { title: 'ID', field: 'id' },
     { title: 'Nome', field: 'nome' },
     { title: 'Categoria', field: 'categoria' },
     { title: 'Valor', field: 'valor' },
-    { title: 'Criado Em', field: 'created_at' },
-    { title: 'Atualizado Em', field: 'update_at' },
+    { title: 'Atualizado Em', field: 'updatedAt' },
     { title: 'Ativo', field: 'ativo' },
-  ];
-
-  const data = [
-    { id: 1, nome: 'Bermuda Jeans', categoria: 'Bermudas', valor: 'R$ 100,00', created_at: '08/09/2020', update_at: '08/09/2020', ativo: 'S'},
-    { id: 2, nome: 'Camiseta M', categoria: 'Bermudas', valor: 'R$ 100,00', created_at: '08/09/2020', update_at: '08/09/2020', ativo: 'S'},
-    { id: 3, nome: 'Regata Azul', categoria: 'Bermudas', valor: 'R$ 100,00', created_at: '08/09/2020', update_at: '08/09/2020', ativo: 'S'},
-    { id: 4, nome: 'Moletom Preto', categoria: 'Bermudas', valor: 'R$ 100,00', created_at: '08/09/2020', update_at: '08/09/2020', ativo: 'S'},
-    { id: 5, nome: 'Jaqueta Jeans', categoria: 'Bermudas', valor: 'R$ 100,00', created_at: '08/09/2020', update_at: '08/09/2020', ativo: 'S'},
-    { id: 6, nome: 'Tenis Nike', categoria: 'Bermudas', valor: 'R$ 100,00', created_at: '08/09/2020', update_at: '08/09/2020', ativo: 'S'},
-    { id: 7, nome: 'Chileno Havaianas', categoria: 'Bermudas', valor: 'R$ 100,00', created_at: '08/09/2020', update_at: '08/09/2020', ativo: 'S'},
-    { id: 8, nome: 'Brinco de Lua', categoria: 'Bermudas', valor: 'R$ 100,00', created_at: '08/09/2020', update_at: '08/09/2020', ativo: 'S'},
   ];
 
   return (
@@ -36,13 +40,13 @@ export default function Table() {
         <MaterialTable
           title="Produtos"
           columns={columns}
-          data={data}
+          data={products}
           actions={[
             {
               icon: 'none',
               tooltip: 'none',
               onClick: (event, rowData) => {
-                alert(rowData.nome);
+                history.push('/product/form', {data: rowData});
               }
             }
           ]}

@@ -13,7 +13,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       categoria: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
       },
       ativo: {
         type: Sequelize.INTEGER,

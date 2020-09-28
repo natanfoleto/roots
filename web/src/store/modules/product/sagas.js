@@ -3,9 +3,10 @@ import { toast } from 'react-toastify';
 
 import api from '../../../services/api';
 
-import { updateProfileSuccess, updateProfileFailure } from './actions';
+import { updateProductSuccess, updateProductFailure } from './actions';
 
 function displayToast(type, msg) {
+
   switch (type) {
     case 'error':
       toast.error(msg, {
@@ -36,26 +37,25 @@ function displayToast(type, msg) {
   }
 }
 
-export function* updateProfile({ payload }) {
+export function* updateProduct({ payload }) {
   try {
-    const { name, email, avatar_id, ...rest } = payload.data;
+    const { name, categoria, valor } = payload.data;
 
-    const profile = Object.assign(
-      { name, email, avatar_id },
-      rest.oldPassword ? rest : {}
+    const product = Object.assign(
+      { name, categoria, valor }
     );
 
-    const response = yield call(api.put, 'users', profile);
+    const response = yield call(api.put, 'products', product);
 
-    displayToast('success', 'Perfil atualizado com sucesso!');
+    displayToast('success', 'Produto atualizado com sucesso!');
 
-    yield put(updateProfileSuccess(response.data));
+    yield put(updateProductSuccess(response.data));
   } catch (err) {
-    displayToast('error', 'Erro ao atualizar perfil, confira seus dados!');
-    yield put(updateProfileFailure());
+    displayToast('error', 'Erro ao atualizar produto, confira os dados!');
+    yield put(updateProductFailure());
   }
 }
 
 export default all([
-  takeLatest('@user/UPDATE_PROFILE_REQUEST', updateProfile),
+  takeLatest('@user/UPDATE_PRODUCT_REQUEST', updateProduct),
 ]);
