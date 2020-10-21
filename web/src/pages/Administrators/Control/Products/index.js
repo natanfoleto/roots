@@ -4,7 +4,7 @@ import { Container, Menu } from '../../../../styles/Administrators/control';
 
 import history from '../../../../services/history';
 
-import AddIcon from '@material-ui/icons/Add';
+import IconAdd from '@material-ui/icons/Add';
 
 import Header from '../../../../components/Administrators/Header';
 import DataTable from './Table';
@@ -22,7 +22,7 @@ export default function Products() {
       <Container>
         <Menu>
           <button onClick={handleAdd}>
-            <AddIcon />
+            <IconAdd />
           </button>
         </Menu>
 

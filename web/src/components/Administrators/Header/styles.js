@@ -81,14 +81,13 @@ export const Profile = styled.div`
     display: flex;
     justify-content: center;
     margin-left: 0;
-    padding-top: 10px;
-    border-top: 2px solid rgba(255, 255, 255, 0.5);
+    padding: 10px 5px 0 5px;
+    background: #0038BA;
     border-left: 0;
   }
 
   div {
     text-align: right;
-    margin-right: 10px;
 
     strong {
       display: block;

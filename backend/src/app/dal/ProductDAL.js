@@ -1,11 +1,18 @@
 import Product from '../models/Product';
+import Photo from '../models/Photo';
 
 import ProductBuilded from '../builders/ProductBuilder';
 
 class ProductDAL {
   async getAll() {
     try {
-      const product = await Product.findAll();
+      const product = await Product.findAll({
+        include: [{
+          model: Photo,
+          as: 'photos',
+          through: { attributes: [] }
+        }]
+      });
   
       return product;
     } catch (err) {
@@ -13,7 +20,7 @@ class ProductDAL {
     }  
   }
 
-  async create() {
+  async create(photos) {
     try {
       const product = await Product.create({
         nome: ProductBuilded.getNome(),
@@ -21,6 +28,15 @@ class ProductDAL {
         ativo: ProductBuilded.getAtivo(),
         valor: ProductBuilded.getValor(),
       });
+
+      
+
+      if (photos && photos.length > 0) {
+        photos.map((photo) => {
+          console.log(photo.id);
+          product.setPhotos(photo.id);
+        });
+      }
   
       return product;
     } catch (err) {
@@ -50,6 +66,42 @@ class ProductDAL {
     } catch (err) {
       console.log("Exception from ProductDAL.js/findByEmail: " + err);
     }
+  }
+
+  async update(body) {
+    try {
+      console.log(body);
+
+      const product = await Product.findOne({
+        where: {
+          id: body.id
+        }
+      });
+
+      const productUpdated = await product.update(body);
+  
+      return productUpdated;
+    } catch (err) {
+      console.log("Exception from ProductDAL.js/update: " + err);
+      return false;
+    }  
+  }
+
+  async inactivate(id) {
+    try {
+      const product = await Product.findOne({
+        where: {
+          id: id
+        }
+      });
+
+      const productInactive = await product.update({ ativo: 0 });
+  
+      return productInactive;
+    } catch (err) {
+      console.log("Exception from ProductDAL.js/inactivate: " + err);
+      return false;
+    }  
   }
 }
 

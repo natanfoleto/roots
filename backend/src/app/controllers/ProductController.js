@@ -14,7 +14,8 @@ class ProductController {
 
   async create(req, res) {
     try {
-      const { nome, categoria, valor } = req.body;
+      const { data, photos } = req.body;
+      const { nome, categoria, valor } = data;
 
       const product = { 
         nome: nome, 
@@ -24,16 +25,38 @@ class ProductController {
 
       await ProductFactory.makeProduct(product);
 
-      const data = await ProductDAL.create();
+      const response = await ProductDAL.create(photos);
 
-      if (!data) {
+      if (!response) {
         return res.status(400).json({ error: 'Erro ao cadastrar um produto, tente novamente!' });
       }
       
-      return res.json(data);
+      return res.json(response);
     } catch (err) {
       console.log("Exception from ProductController.js/create: " + err);
       return res.status(400).json({ error: 'Erro ao cadastrar um produto, tente novamente!' });
+    }
+  }
+
+  async update(req, res) {
+    try {
+      const products = await ProductDAL.update(req.body);
+
+      return res.json(products);
+    } catch (err) {
+      console.log("Exception from ProductController.js/update: " + err);
+    }
+  }
+  
+  async inactivate(req, res) {
+    try {
+      const { id } = req.params;
+
+      const products = await ProductDAL.inactivate(id);
+
+      return res.json(products);
+    } catch (err) {
+      console.log("Exception from ProductController.js/inactivate: " + err);
     }
   }
 }

@@ -27,9 +27,9 @@ export default function Table() {
     { title: 'ID', field: 'id' },
     { title: 'Nome', field: 'nome' },
     { title: 'Categoria', field: 'categoria' },
-    { title: 'Valor', field: 'valor' },
-    { title: 'Atualizado Em', field: 'updatedAt' },
-    { title: 'Ativo', field: 'ativo' },
+    { title: 'Preço', field: 'valor', type: 'currency', hidden: true },
+    { title: 'Atualizado Em', field: 'updatedAt',  type: 'datetime', hidden: true },
+    { title: 'Ativo', field: 'ativo', type: 'boolean' },
   ];
 
   return (

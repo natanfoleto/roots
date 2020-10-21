@@ -9,15 +9,22 @@ export const Container = styled.div`
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 5px;
 
-  button {
-    background: transparent;
-    border: 0;
-    outline: 0;
-  }
-
   h1 {
     font-size: 22px;
     margin: 0 0 15px 0;
+  }
+`;
+
+export const Menu = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    background: transparent;
+    border: 1px solid #666;
+    border-radius: 2px;
+    padding: 4px;
+    outline: 0;
   }
 `;
 
@@ -65,6 +72,7 @@ export const Forms = styled.div`
       font-weight: bold;
       color: #fff;
       border: 0;
+      outline: 0;
       border-radius: 4px;
       font-size: 16px;
       transition: background 0.2s;
@@ -85,12 +93,33 @@ export const Photo = styled.div`
 `;
 
 export const PhotoData = styled.div`
-  padding: 20px 20px 5px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 15px 15px;
   height: auto;
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 5px;
 
-  strong {
-    margin-bottom: 5px;
+  img, label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 90px;
+    width: 90px;
+    border: 1px solid #888;
+    color: #888;
+    border-radius: 3px;
+    background: transparent;
+    margin: 5px;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  input {
+    display: none;
   }
 `;

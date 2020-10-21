@@ -16,7 +16,7 @@ class App {
     middlewares() {
         this.server.use(express.json());
         this.server.use(cors());
-        this.server.use('/files', express.static(path.resolve(__dirname, '..', 'tmp', 'resources')));
+        this.server.use('/photos', express.static(path.resolve(__dirname, '..', 'tmp', 'uploads')));
     }
 
     routes() {

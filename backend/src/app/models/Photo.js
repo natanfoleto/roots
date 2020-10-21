@@ -1,29 +1,29 @@
 import Sequelize, { Model } from 'sequelize';
 
-class Product extends Model {
+class Photo extends Model {
   static init(sequelize) {
     super.init(
       {
         nome: Sequelize.STRING,
-        categoria: Sequelize.STRING,
-        ativo: Sequelize.INTEGER,
-        valor: Sequelize.DECIMAL,
+        tamanho: Sequelize.STRING,
+        formato_imagem: Sequelize.STRING,
+        url: Sequelize.STRING,
       },
       {
         sequelize,
       }
     );
-    
+
     return this;
   }
 
   static associate(models) {
-    this.belongsToMany(models.Photo, { 
+    this.belongsToMany(models.Product, { 
       through: 'photos_products',
-      foreignKey: 'id_produto', 
-      as: 'photos' 
+      foreignKey: 'id_foto', 
+      as: 'products' 
     });
   }
 }
 
-export default Product;
+export default Photo;

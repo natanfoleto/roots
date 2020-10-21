@@ -13,14 +13,13 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      path: {
-        type: Sequelize.STRING,
-        unique: true,
-      },
       tamanho: {
         type: Sequelize.STRING,
       },
       formato_imagem: {
+        type: Sequelize.STRING,
+      },
+      url: {
         type: Sequelize.STRING,
       },
       created_at: {
