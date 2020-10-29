@@ -12,7 +12,7 @@ import DataTable from './Table';
 export default function Products() {
 
   function handleAdd() {
-    history.push('/product/form');
+    //history.push('/product/form');
   }
 
   return (
