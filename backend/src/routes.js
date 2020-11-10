@@ -4,6 +4,7 @@ import multerConfig from './config/multer';
 
 import UserController from './app/controllers/UserController';
 import ProductController from './app/controllers/ProductController';
+import CategorieController from './app/controllers/CategorieController';
 import SessionController from './app/controllers/SessionController';
 import PhotoController from './app/controllers/PhotoController';
 
@@ -16,6 +17,11 @@ routes.get('/products', ProductController.index);
 routes.post('/products', ProductController.create);
 routes.put('/products', ProductController.update);
 routes.delete('/products/:id', ProductController.inactivate);
+
+routes.get('/categories', CategorieController.index);
+routes.post('/categories', CategorieController.create);
+routes.put('/categories', CategorieController.update);
+routes.delete('/categories/:id', CategorieController.delete);
 
 routes.post('/sessions', SessionController.create);
 

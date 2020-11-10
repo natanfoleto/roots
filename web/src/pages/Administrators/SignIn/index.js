@@ -11,7 +11,7 @@ import { Wrapper, Content, Back } from '../../../styles/Auth/auth';
 export default function SignIn() {
   const dispatch = useDispatch();
   const loading = useSelector(state => state.auth.loading);
-  
+
   function handleSubmit({ email, password }) {
     dispatch(signInRequest(email, password));
   }
@@ -21,25 +21,24 @@ export default function SignIn() {
       <Wrapper>
         <Content>
           <h1> ROOTS </h1>
-          
+
           <Form onSubmit={handleSubmit}>
-            <Input 
-              name="email" 
-              type="email" 
-              placeholder="Seu e-mail" 
-              autoComplete="off" 
+            <Input
+              name="email"
+              type="email"
+              placeholder="Seu e-mail"
+              autoComplete="off"
               required
-              value="natanfoleto@hotmail.com"
             />
-            <Input 
-              name="password" 
-              type="password" 
-              placeholder="Sua senha" 
-              autoComplete="off" 
+            <Input
+              name="password"
+              type="password"
+              placeholder="Sua senha"
+              autoComplete="off"
               required
             />
 
-            <button type="submit">{ loading ? 'Carregando...' : 'Acessar' }</button>
+            <button type="submit">{loading ? 'Carregando...' : 'Acessar'}</button>
 
             <Back>
               <nav>

@@ -13,11 +13,11 @@ class ProductDAL {
           through: { attributes: [] }
         }]
       });
-  
+
       return product;
     } catch (err) {
       console.log("Exception from ProductDAL.js/getAll: " + err);
-    }  
+    }
   }
 
   async create(photos) {
@@ -29,62 +29,43 @@ class ProductDAL {
         valor: ProductBuilded.getValor(),
       });
 
-      
-
       if (photos && photos.length > 0) {
         photos.map((photo) => {
-          console.log(photo.id);
           product.setPhotos(photo.id);
         });
       }
-  
+
       return product;
     } catch (err) {
       console.log("Exception from ProductDAL.js/create: " + err);
       return false;
-    }  
-  }
-
-  async findByEmail(email) {
-    try {
-      let user;
-
-      if (email) {
-        user = await User.findOne({ 
-          where: { email: email }
-        });
-      } else {
-        user = await User.findOne({ 
-          where: { email: UserBuilded.getEmail() }
-        });
-      }
-  
-      if (user) {
-        return user;
-      }
-
-    } catch (err) {
-      console.log("Exception from ProductDAL.js/findByEmail: " + err);
     }
   }
 
   async update(body) {
     try {
       console.log(body);
+      const photos = body.photos;
 
       const product = await Product.findOne({
         where: {
-          id: body.id
+          id: body.data.id
         }
       });
 
-      const productUpdated = await product.update(body);
-  
+      const productUpdated = await product.update(body.data);
+
+      if (photos && photos.length > 0) {
+        photos.map((photo) => {
+          product.setPhotos(photo.id);
+        });
+      }
+
       return productUpdated;
     } catch (err) {
       console.log("Exception from ProductDAL.js/update: " + err);
       return false;
-    }  
+    }
   }
 
   async inactivate(id) {
@@ -96,12 +77,12 @@ class ProductDAL {
       });
 
       const productInactive = await product.update({ ativo: 0 });
-  
+
       return productInactive;
     } catch (err) {
       console.log("Exception from ProductDAL.js/inactivate: " + err);
       return false;
-    }  
+    }
   }
 }
 

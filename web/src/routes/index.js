@@ -14,6 +14,7 @@ import ProfileAdm from '../pages/Administrators/Profile';
 import Control from '../pages/Administrators/Control';
 import Clients from '../pages/Administrators/Control/Clients';
 import Categories from '../pages/Administrators/Control/Categories';
+import CategoriesForm from '../pages/Administrators/Control/Categories/Form';
 import Products from '../pages/Administrators/Control/Products';
 import ProductsForm from '../pages/Administrators/Control/Products/Form';
 import Providers from '../pages/Administrators/Control/Providers';
@@ -40,6 +41,7 @@ export default function Routes() {
       <Route path="/clients" component={Clients} isPrivate />
 
       <Route path="/categories" component={Categories} isPrivate />
+      <Route path="/categorie/form" component={CategoriesForm} isPrivate />
 
       <Route path="/products" component={Products} isPrivate />
       <Route path="/product/form" component={ProductsForm} isPrivate />

@@ -16,7 +16,7 @@ export default function Table() {
   useEffect(() => {
     async function loadProducts() {
       const response = await api.get('/products');
-  
+
       setProducts(response.data);
     }
 
@@ -26,16 +26,16 @@ export default function Table() {
   const columns = [
     { title: 'ID', field: 'id' },
     { title: 'Nome', field: 'nome' },
-    { title: 'Categoria', field: 'categoria' },
+    { title: 'Categoria', field: 'categoria', hidden: true },
     { title: 'Preço', field: 'valor', type: 'currency', hidden: true },
-    { title: 'Atualizado Em', field: 'updatedAt',  type: 'datetime', hidden: true },
+    { title: 'Atualizado Em', field: 'updatedAt', type: 'datetime', hidden: true },
     { title: 'Ativo', field: 'ativo', type: 'boolean' },
   ];
 
   return (
     <>
       <Container>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 
         <MaterialTable
           title="Produtos"
@@ -46,7 +46,7 @@ export default function Table() {
               icon: 'none',
               tooltip: 'none',
               onClick: (event, rowData) => {
-                history.push('/product/form', {data: rowData});
+                history.push('/product/form', { data: rowData });
               }
             }
           ]}

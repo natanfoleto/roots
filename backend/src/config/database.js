@@ -1,12 +1,12 @@
 module.exports = {
   dialect: 'postgres',
-  host: 'localhost',
+  host: '52.45.46.210',
   username: 'postgres',
-  password: '143010',
+  password: 'pointcollect',
   database: 'roots',
   define: {
     timestamp: true,
     underscored: true,
     underscoredAll: true,
-  }, 
+  },
 };

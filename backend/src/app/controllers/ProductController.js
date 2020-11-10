@@ -17,9 +17,9 @@ class ProductController {
       const { data, photos } = req.body;
       const { nome, categoria, valor } = data;
 
-      const product = { 
-        nome: nome, 
-        categoria: categoria, 
+      const product = {
+        nome: nome,
+        categoria: categoria,
         valor: valor
       };
 
@@ -30,7 +30,7 @@ class ProductController {
       if (!response) {
         return res.status(400).json({ error: 'Erro ao cadastrar um produto, tente novamente!' });
       }
-      
+
       return res.json(response);
     } catch (err) {
       console.log("Exception from ProductController.js/create: " + err);
@@ -47,7 +47,7 @@ class ProductController {
       console.log("Exception from ProductController.js/update: " + err);
     }
   }
-  
+
   async inactivate(req, res) {
     try {
       const { id } = req.params;
