@@ -16,7 +16,7 @@ class CategorieController {
       const response = await Categorie.create(req.body);
 
       if (!response) {
-        return res.status(400).json({ error: 'Erro ao cadastrar um produto, tente novamente!' });
+        return res.status(400).json({ error: 'Erro ao cadastrar uma categoria, tente novamente!' });
       }
 
       return res.json(response);

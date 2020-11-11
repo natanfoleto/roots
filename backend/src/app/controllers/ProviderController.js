@@ -16,7 +16,7 @@ class ProviderController {
       const response = await Provider.create(req.body);
 
       if (!response) {
-        return res.status(400).json({ error: 'Erro ao cadastrar um produto, tente novamente!' });
+        return res.status(400).json({ error: 'Erro ao cadastrar um fornecedor, tente novamente!' });
       }
 
       return res.json(response);
@@ -28,11 +28,11 @@ class ProviderController {
 
   async update(req, res) {
     try {
-      const { id, nome } = req.body;
+      const body = req.body;
 
-      const providers = await Provider.update({ nome }, {
+      const providers = await Provider.update(body, {
         where: {
-          id: id
+          id: body.id
         }
       });
 
