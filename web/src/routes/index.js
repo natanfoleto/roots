@@ -18,6 +18,7 @@ import CategoriesForm from '../pages/Administrators/Control/Categories/Form';
 import Products from '../pages/Administrators/Control/Products';
 import ProductsForm from '../pages/Administrators/Control/Products/Form';
 import Providers from '../pages/Administrators/Control/Providers';
+import ProvidersForm from '../pages/Administrators/Control/Providers/Form';
 
 export default function Routes() {
   return (
@@ -47,6 +48,7 @@ export default function Routes() {
       <Route path="/product/form" component={ProductsForm} isPrivate />
 
       <Route path="/providers" component={Providers} isPrivate />
+      <Route path="/provider/form" component={ProvidersForm} isPrivate />
 
       <Route path="/" component={() => <h1>404</h1>} />
     </Switch>
