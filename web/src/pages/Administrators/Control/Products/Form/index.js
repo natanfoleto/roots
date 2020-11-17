@@ -250,6 +250,7 @@ export default function Index({ location }) {
             <Input
               name="nome"
               placeholder="Nome do produto"
+              maxLength={30}
               readOnly={product !== undefined && product.ativo === 0 ? true : false}
               maxLength={50}
               required
@@ -267,6 +268,7 @@ export default function Index({ location }) {
               name="valor"
               type="number"
               placeholder="R$"
+              maxLength={10}
               readOnly={product !== undefined && product.ativo === 0 ? true : false}
               required
             />
