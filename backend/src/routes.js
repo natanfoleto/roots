@@ -8,11 +8,15 @@ import CategorieController from './app/controllers/CategorieController';
 import SessionController from './app/controllers/SessionController';
 import PhotoController from './app/controllers/PhotoController';
 import ProviderController from './app/controllers/ProviderController';
+import ClientsController from './app/controllers/ClientsController';
 
 const routes = new Router();
 const upload = multer(multerConfig);
 
 routes.post('/users', UserController.create);
+
+routes.get('/clients', ClientsController.index);
+routes.post('/clients', ClientsController.create);
 
 routes.get('/products', ProductController.index);
 routes.post('/products', ProductController.create);

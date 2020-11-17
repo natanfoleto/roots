@@ -14,9 +14,7 @@ export default function Clients() {
 
       <Container>
         <Menu>
-          <button>
-            <AddIcon />
-          </button>
+          
         </Menu>
 
         <DataTable />
