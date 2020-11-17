@@ -21,7 +21,7 @@ module.exports = {
         unique: true,
       },
       telefone: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
       },
       created_at: {
         type: Sequelize.DATE,
