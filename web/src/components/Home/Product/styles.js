@@ -12,6 +12,11 @@ export const Container = styled.div`
     &:hover {
       opacity: 0.9;
     }
+
+    img {
+      height: 300px;
+      width: 300px;
+    }
   }
 
   a {

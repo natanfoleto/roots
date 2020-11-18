@@ -1,4 +1,4 @@
-import { takeLatest, call, put ,all } from 'redux-saga/effects';
+import { takeLatest, call, put, all } from 'redux-saga/effects';
 import { toast } from 'react-toastify';
 
 import api from '../../../services/api';
@@ -30,7 +30,7 @@ function displayToast(type, msg) {
         progress: undefined,
       });
       break;
-  
+
     default:
       break;
   }
@@ -38,18 +38,24 @@ function displayToast(type, msg) {
 
 export function* updateProfile({ payload }) {
   try {
-    const { name, email, avatar_id, ...rest } = payload.data;
+    const { nome, cpf, data_nasc, email, ...rest } = payload.data;
 
     const profile = Object.assign(
-      { name, email, avatar_id },
+      { nome, cpf, data_nasc, email },
       rest.oldPassword ? rest : {}
     );
 
     const response = yield call(api.put, 'users', profile);
 
-    displayToast('success', 'Perfil atualizado com sucesso!');
+    if (response.data.error === 1) {
+      displayToast('error', 'Erro ao atualizar perfil!');
+    } else if (response.data.error === 2) {
+      displayToast('error', 'Senha incorreta!');
+    } else {
+      displayToast('success', 'Perfil atualizado com sucesso!');
 
-    yield put(updateProfileSuccess(response.data));
+      yield put(updateProfileSuccess(response.data.user));
+    }
   } catch (err) {
     displayToast('error', 'Erro ao atualizar perfil, confira seus dados!');
     yield put(updateProfileFailure());

@@ -195,7 +195,7 @@ export default function Index({ location }) {
             <Input
               name="nome"
               placeholder="Nome da categoria"
-              maxLength={50}
+              maxLength={30}
               required
             />
 

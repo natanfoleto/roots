@@ -20,6 +20,12 @@ export const Content = styled.div`
     align-items: center;
   }
 
+  .site {
+    a {
+      color: #FFF;
+    }
+  }
+
   nav {
     display: flex;
     align-items: center;
