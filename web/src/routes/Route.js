@@ -15,16 +15,16 @@ export default function RouteWrapper({
   const { signed } = store.getState().auth;
 
   if (!signed && isPrivate) {
-    return <Redirect to="/"/>;
+    return <Redirect to="/" />;
   }
 
   if (signed && !isPrivate && path === '/login/adm') {
-    return <Redirect to="/control"/>;
+    return <Redirect to="/control" />;
   }
 
   const Layout = DefaultLayout;
 
-  return <Route {...rest} 
+  return <Route {...rest}
     render={props => (
       <Layout>
         <Component {...props} />

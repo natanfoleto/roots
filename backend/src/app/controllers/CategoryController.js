@@ -1,9 +1,9 @@
-import Categorie from '../models/Categories';
+import Category from '../models/Category';
 
-class CategorieController {
+class CategoryController {
   async index(req, res) {
     try {
-      const categories = await Categorie.findAll();
+      const categories = await Category.findAll();
 
       return res.json(categories);
     } catch (err) {
@@ -13,7 +13,7 @@ class CategorieController {
 
   async create(req, res) {
     try {
-      const response = await Categorie.create(req.body);
+      const response = await Category.create(req.body);
 
       if (!response) {
         return res.status(400).json({ error: 'Erro ao cadastrar uma categoria, tente novamente!' });
@@ -30,7 +30,7 @@ class CategorieController {
     try {
       const { id, nome } = req.body;
 
-      const categories = await Categorie.update({ nome }, {
+      const categories = await Category.update({ nome }, {
         where: {
           id: id
         }
@@ -38,7 +38,7 @@ class CategorieController {
 
       return res.json(categories);
     } catch (err) {
-      console.log("Exception from CategorieController.js/update: " + err);
+      console.log("Exception from CategoryController.js/update: " + err);
     }
   }
 
@@ -46,7 +46,7 @@ class CategorieController {
     try {
       const { id } = req.params;
 
-      const categorie = await Categorie.findOne(
+      const categorie = await Category.findOne(
         {
           where: {
             id: id
@@ -60,9 +60,9 @@ class CategorieController {
 
       return res.json(response);
     } catch (err) {
-      console.log("Exception from CategorieController.js/delete: " + err);
+      console.log("Exception from CategoryController.js/delete: " + err);
     }
   }
 }
 
-export default new CategorieController();
+export default new CategoryController();

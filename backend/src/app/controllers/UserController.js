@@ -45,8 +45,6 @@ class UserController {
     try {
       const { nome, cpf, data_nasc, email, oldPassword, password } = req.body;
 
-      console.log(req.body);
-
       const user = await User.findOne({
         where: { cpf: cpf }
       });

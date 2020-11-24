@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
 
-export const Container = styled.div`
+export const ContainerHeader = styled.div`
   background: #FF6702;
   padding: 0 30px;
 `;
 
-export const Content = styled.div`
+export const ContentHeader = styled.div`
   height: 85px;
   max-width: 900px;
   margin: 0 auto;

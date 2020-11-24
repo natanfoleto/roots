@@ -1,24 +1,21 @@
 import React from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 
-import { signOut } from '../../../store/modules/auth/actions';
-import { updateProfileRequest } from '../../../store/modules/user/actions';
+import { signOut } from '../../../store/modules/authClient/actions';
+import { updateClientRequest } from '../../../store/modules/client/actions';
 
-import Header from '../../../components/Administrators/Header';
+import Header from '../../../components/Home/Header';
 
-import { Container, Dados, Forms, Card, CardData, Menu } from './styles';
-
-import history from '../../../services/history';
+import { Container, Forms } from './styles';
 
 import { toast } from 'react-toastify';
 
-import Icon from '@material-ui/icons/ExitToApp';
-
 export default function Profile() {
   const dispatch = useDispatch();
-  const profile = useSelector(state => state.user.profile);
+  const profile = useSelector(state => state.client.client);
 
   function displayToast(type, msg) {
     switch (type) {
@@ -51,10 +48,6 @@ export default function Profile() {
     }
   }
 
-  function handleLog() {
-    history.push('/logs');
-  }
-
   async function handleSubmit(data) {
     if (data.oldPassword !== "") {
       if (data.password === "" || data.confirmPasswrod === "") {
@@ -68,7 +61,7 @@ export default function Profile() {
       }
     }
 
-    await dispatch(updateProfileRequest(data));
+    await dispatch(updateClientRequest(data));
   }
 
   function handleSignOut() {
@@ -80,31 +73,9 @@ export default function Profile() {
       <Header />
 
       <Container>
-
-        <h1>Dados do Sistema</h1>
-        <Dados>
-          <Menu>
-            <button onClick={handleLog}>
-              Logs
-            </button>
-
-            <button>
-              v1.0.0
-            </button>
-          </Menu>
-
-          <button
-
-            type="button"
-            onClick={handleSignOut}
-          >
-            <Icon />
-          </button>
-        </Dados>
-
         <Forms>
           <Form initialData={profile} onSubmit={handleSubmit} autoComplete="off">
-            <h1>Dados Pessoais</h1>
+            <h1>Seu Perfil</h1>
 
             <Input
               name="nome"
@@ -163,17 +134,8 @@ export default function Profile() {
             />
 
             <button type="submit">Salvar</button>
+            <button onClick={handleSignOut}><Link to="/">Sair</Link></button>
           </Form>
-
-          <Card>
-            <h1>Outras Informações</h1>
-
-            <CardData>
-              <p><strong>Status da conta:</strong> {profile.ativo && profile.ativo === 1 ? 'Ativo' : 'Inativo'} </p>
-              <p><strong>Conta criada em:</strong> {profile.createdAt && profile.createdAt} </p>
-              <p><strong>Conta atualizada em:</strong> {profile.updatedAt && profile.updatedAt} </p>
-            </CardData>
-          </Card>
         </Forms>
       </Container>
     </>

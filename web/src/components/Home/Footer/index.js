@@ -16,45 +16,35 @@ function Footer() {
         </div>
 
         <div>
-          <h1> Links Rápidos </h1>
-
-          <Link to="/">Promoções</Link> 
-          <Link to="/">Categorias</Link> 
-          <Link to="/">Cadastro</Link> 
-          <Link to="/">Login</Link>
-          
-        </div>
-
-        <div>
           <h1> Começe Já </h1>
 
           <p> Seja um cliente agora. </p>
 
           <Link to="/register/client">
             <button>Cadastre-se</button>
-          </Link>          
+          </Link>
         </div>
 
         <div>
           <h1> Contatos </h1>
 
           <p> (16) 3347-1901 </p>
-          <Link>loja.roots@hotmail.com</Link>       
+          <Link>loja.roots@hotmail.com</Link>
 
           <Social>
             <a href="https://web.whatsapp.com" target="blank">
-              <img alt= "Facebook" src="https://img.icons8.com/fluent/50/000000/whatsapp.png"/>
+              <img alt="Facebook" src="https://img.icons8.com/fluent/50/000000/whatsapp.png" />
             </a>
 
             <a href="https://www.facebook.com" target="blank">
-              <img alt= "Facebook" src="https://img.icons8.com/fluent/48/000000/facebook-new.png"/>
+              <img alt="Facebook" src="https://img.icons8.com/fluent/48/000000/facebook-new.png" />
             </a>
 
             <a href="https://www.instagram.com" target="blank">
-              <img alt= "Facebook" src="https://img.icons8.com/fluent/48/000000/instagram-new.png"/>
+              <img alt="Facebook" src="https://img.icons8.com/fluent/48/000000/instagram-new.png" />
             </a>
           </Social>
-          
+
           <nav>
 
           </nav>

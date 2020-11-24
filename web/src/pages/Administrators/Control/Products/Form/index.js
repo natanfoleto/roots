@@ -8,6 +8,8 @@ import Header from '../../../../../components/Administrators/Header';
 import history from '../../../../../services/history';
 import api from '../../../../../services/api';
 
+import Logs from '../../../../../utils/RegisterLogs';
+
 import { Container, Menu, Forms, Photo, PhotoData } from './styles';
 
 import { confirmAlert } from 'react-confirm-alert';
@@ -120,6 +122,15 @@ export default function Index({ location }) {
 
       if (response.status === 200) {
         displayToast('success', 'Produto salvo com sucesso!');
+
+        const log = {
+          item: data.nome,
+          entidade: "Produto",
+          op: "Criação"
+        }
+
+        await Logs.create(log);
+
         history.push('/products');
       } else {
         console.log(response);
@@ -149,6 +160,15 @@ export default function Index({ location }) {
 
               if (response.status === 200) {
                 displayToast('info', 'Produto alterado com sucesso!');
+
+                const log = {
+                  item: data.nome,
+                  entidade: "Produto",
+                  op: "Atualização"
+                }
+
+                await Logs.create(log);
+
                 history.push('/products');
               } else {
                 console.log(response);
@@ -183,6 +203,15 @@ export default function Index({ location }) {
 
               if (response.status === 200) {
                 displayToast('info', 'Produto inativado com sucesso!');
+
+                const log = {
+                  item: product.nome,
+                  entidade: "Produto",
+                  op: "Inativação"
+                }
+
+                await Logs.create(log);
+
                 history.push('/products');
               } else {
                 console.log(response);

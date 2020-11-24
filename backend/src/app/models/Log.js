@@ -4,9 +4,7 @@ class Log extends Model {
   static init(sequelize) {
     super.init(
       {
-        campo: Sequelize.STRING,
-        valor_anterior: Sequelize.STRING,
-        valor_posterior: Sequelize.STRING,
+        item: Sequelize.STRING,
         entidade: Sequelize.STRING,
         op: Sequelize.STRING
       },
@@ -15,6 +13,8 @@ class Log extends Model {
         updatedAt: false
       }
     );
+
+    return this;
   }
 
 }

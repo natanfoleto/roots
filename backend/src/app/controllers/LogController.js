@@ -9,7 +9,7 @@ class LogController {
 
   async create(req, res) {
     try {
-      const { campo, valor_anterior, valor_posterior, entidade, op } = req.body;
+      // const { campo, valor_anterior, valor_posterior, entidade, op } = req.body;
 
       const data = await Log.create(req.body);
 

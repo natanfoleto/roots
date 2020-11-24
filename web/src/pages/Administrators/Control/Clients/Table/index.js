@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 import MaterialTable from 'material-table';
 
-import history from '../../../../../services/history';
-
 import MenuOpenIcon from '@material-ui/icons/MenuOpen';
 
 import { Container, Button } from '../../../../../styles/Administrators/table.js';
@@ -14,13 +12,13 @@ export default function Table() {
   const [clients, setClients] = useState([]);
 
   useEffect(() => {
-    async function loadProducts() {
+    async function loadClients() {
       const response = await api.get('/clients');
 
       setClients(response.data);
     }
 
-    loadProducts();
+    loadClients();
   }, []);
 
   const columns = [
@@ -28,8 +26,8 @@ export default function Table() {
     { title: 'Nome', field: 'nome' },
     { title: 'Email', field: 'email' },
     { title: 'CPF', field: 'cpf' },
-    { title: 'Data de Nascimento', field: 'data_nasc' },   
-    
+    { title: 'Data de Nascimento', field: 'data_nasc' },
+
   ];
 
   return (

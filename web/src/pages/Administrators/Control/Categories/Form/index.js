@@ -8,6 +8,8 @@ import Header from '../../../../../components/Administrators/Header';
 import history from '../../../../../services/history';
 import api from '../../../../../services/api';
 
+import Logs from '../../../../../utils/RegisterLogs';
+
 import { Container, Menu, Forms } from './styles';
 
 import { confirmAlert } from 'react-confirm-alert';
@@ -15,7 +17,6 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 
 import IconBack from '@material-ui/icons/ArrowBack';
 import IconDelete from '@material-ui/icons/DeleteForever';
-import IconAdd from '@material-ui/icons/Add';
 
 export default function Index({ location }) {
   let categorie;
@@ -74,6 +75,15 @@ export default function Index({ location }) {
 
       if (response.status === 200) {
         displayToast('success', 'Categoria salva com sucesso!');
+
+        const log = {
+          item: data.nome,
+          entidade: "Categoria",
+          op: "Criação"
+        }
+
+        await Logs.create(log);
+
         history.push('/categories');
       } else {
         console.log(response);
@@ -103,6 +113,15 @@ export default function Index({ location }) {
 
               if (response.status === 200) {
                 displayToast('info', 'Categoria alterada com sucesso!');
+
+                const log = {
+                  item: data.nome,
+                  entidade: "Categoria",
+                  op: "Atualização"
+                }
+
+                await Logs.create(log);
+
                 history.push('/categories');
               } else {
                 console.log(response);
@@ -137,6 +156,15 @@ export default function Index({ location }) {
 
               if (response.status === 200) {
                 displayToast('info', 'Categoria deletada com sucesso!');
+
+                const log = {
+                  item: categorie.nome,
+                  entidade: "Categoria",
+                  op: "Exclusão"
+                }
+
+                await Logs.create(log);
+
                 history.push('/categories');
               } else {
                 console.log(response);

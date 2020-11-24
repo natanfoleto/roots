@@ -1,4 +1,4 @@
-import Clients from '../models/Clients';
+import Clients from '../models/Client';
 
 import ClientsBuilder from '../builders/ClientsBuilder';
 
@@ -8,15 +8,15 @@ class ClientsDAL {
       let client;
 
       if (email) {
-        client = await Clients.findOne({ 
+        client = await Clients.findOne({
           where: { email: email }
         });
       } else {
-        client = await Clients.findOne({ 
+        client = await Clients.findOne({
           where: { email: ClientsBuilder.getEmail() }
         });
       }
-  
+
       if (client) {
         return client;
       }
@@ -28,18 +28,18 @@ class ClientsDAL {
 
   async findByCpf() {
     try {
-      const client = await Clients.findOne({ 
+      const client = await Clients.findOne({
         where: { cpf: ClientsBuilder.getCpf() }
       });
-  
+
       if (client) {
         return client;
       }
-  
+
       return null;
     } catch (err) {
       console.log("Exception from ClientsDAL.js/findByCpf: " + err);
-    }  
+    }
   }
 
   async create() {
@@ -51,11 +51,11 @@ class ClientsDAL {
         email: ClientsBuilder.getEmail(),
         password: ClientsBuilder.getPassword(),
       });
-  
+
       return client;
     } catch (err) {
       console.log("Exception from ClientsDAL.js/create: " + err);
-    }  
+    }
   }
 }
 

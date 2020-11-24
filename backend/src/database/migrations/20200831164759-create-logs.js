@@ -2,20 +2,14 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('logs', { 
+    return queryInterface.createTable('logs', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
       },
-      campo: {
-        type: Sequelize.STRING,
-      },
-      valor_anterior: {
-        type: Sequelize.STRING,
-      },
-      valor_posterior: {
+      item: {
         type: Sequelize.STRING,
       },
       entidade: {

@@ -3,28 +3,36 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Carousel } from 'react-bootstrap';
 
-
 import { Container } from './styles';
 
-function BCarousel() {
+function BCarousel({ products }) {
   const carouselItem = {
     height: '500px',
+  }
+
+  const imgSize = {
+    height: '500px'
   }
 
   return (
     <Container>
       <Carousel>
-        <Carousel.Item style={carouselItem}>
-          <img
-            className="d-block w-100"
-            src="https://cdn.dicionariopopular.com/imagens/image-53.jpg"
-            alt="First slide"
-          />
-          <Carousel.Caption>
-            <h3>Primeiro título</h3>
-            <p>Descrição de uma foto do slide.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
+        {/* {
+          products && products.map((product) => (
+            <Carousel.Item style={carouselItem} key={product.id}>
+              <img
+                className="d-block w-100"
+                src={product.photos[0].url}
+                alt={product.nome}
+                style={imgSize}
+              />
+              <Carousel.Caption>
+                <h3>{product.nome}</h3>
+                <p>R${product.valor},00</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+          ))
+        } */}
 
         <Carousel.Item style={carouselItem}>
           <img

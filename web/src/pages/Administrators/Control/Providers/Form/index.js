@@ -8,6 +8,8 @@ import Header from '../../../../../components/Administrators/Header';
 import history from '../../../../../services/history';
 import api from '../../../../../services/api';
 
+import Logs from '../../../../../utils/RegisterLogs';
+
 import { Container, Menu, Forms } from './styles';
 
 import { confirmAlert } from 'react-confirm-alert';
@@ -15,7 +17,6 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 
 import IconBack from '@material-ui/icons/ArrowBack';
 import IconDelete from '@material-ui/icons/DeleteForever';
-import IconAdd from '@material-ui/icons/Add';
 
 export default function Index({ location }) {
   let provider;
@@ -74,6 +75,15 @@ export default function Index({ location }) {
 
       if (response.status === 200) {
         displayToast('success', 'Fornecedor salvo com sucesso!');
+
+        const log = {
+          item: data.nome,
+          entidade: "Fornecedor",
+          op: "Criação"
+        }
+
+        await Logs.create(log);
+
         history.push('/providers');
       } else {
         console.log(response);
@@ -98,7 +108,7 @@ export default function Index({ location }) {
                 id: data.id,
                 nome: data.nome,
                 cnpj: data.cnpj,
-                email: data.email, 
+                email: data.email,
                 telefone: data.telefone,
               };
 
@@ -106,6 +116,15 @@ export default function Index({ location }) {
 
               if (response.status === 200) {
                 displayToast('info', 'Fornecedor alterado com sucesso!');
+
+                const log = {
+                  item: data.nome,
+                  entidade: "Fornecedor",
+                  op: "Alteração"
+                }
+
+                await Logs.create(log);
+
                 history.push('/providers');
               } else {
                 console.log(response);
@@ -141,6 +160,15 @@ export default function Index({ location }) {
 
               if (response.status === 200) {
                 displayToast('info', 'Fornecedor deletado com sucesso!');
+
+                const log = {
+                  item: provider.nome,
+                  entidade: "Fornecedor",
+                  op: "Exclusão"
+                }
+
+                await Logs.create(log);
+
                 history.push('/providers');
               } else {
                 console.log(response);
