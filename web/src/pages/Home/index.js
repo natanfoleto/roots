@@ -18,6 +18,8 @@ export default function Home() {
   const client = useSelector(state => state.client.client);
   const [products, setProducts] = useState([]);
   const [productsCarousel, setProductsCarousel] = useState([]);
+  const [active, setActive] = useState(false);
+  const [photo, setPhoto] = useState(null);
 
   useEffect(() => {
     async function loadProducts() {
@@ -37,6 +39,11 @@ export default function Home() {
 
     setProducts(response.data);
     console.log(response.data);
+  }
+
+  function handleProduct(e) {
+    setActive(!active);
+    setPhoto(e.target.src);
   }
 
   return (
@@ -70,13 +77,15 @@ export default function Home() {
       }
       <Menu />
 
-      <Products>
+      <Products onClick={handleProduct}>
         <ul>
           {products && products.map((product) => (
             <Product
               nome={product.nome}
               valor={product.valor}
               photos={product.photos}
+              active={active}
+              photo={photo}
             />
           ))}
         </ul>

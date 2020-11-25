@@ -7,7 +7,7 @@ function Menu() {
   return (
     <Container>
       <Content>
-        <nav>
+        {/* <nav>
           <Link to="/">TODAS AS CATEGORIAS</Link>
         </nav>
         <nav>
@@ -21,7 +21,7 @@ function Menu() {
         </nav>
         <nav>
           <Link to="/">BERMUDAS</Link>
-        </nav>
+        </nav> */}
       </Content>
     </Container>
   );

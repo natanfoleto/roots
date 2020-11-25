@@ -1,14 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import { Container } from './styles';
 
-function ModalProduct({ id, nome, categoria, ativo, valor, photos, ...rest }) {
+function ModalProduct({ photo, actived, ...rest }) {
+  const [active, setActive] = useState(null);
+
+  useEffect(() => {
+    setActive(actived);
+  })
+
+  function handleClose() {
+    setActive(false)
+  }
+
   return (
-    <Container {...rest}>
-      <button>X</button>
+    <Container active={active} {...rest}>
+      <button onClick={handleClose}>X</button>
       <img
-        src={'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQqvvCCFRAASaxwrYf-Gm73LgEezxHjqM9IIw&usqp=CAU'}
+        src={photo}
         alt="First slide"
       />
     </Container>

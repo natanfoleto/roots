@@ -6,7 +6,8 @@ import { Container } from './styles';
 
 import ModalProduct from '../ModalProduct';
 
-function Product({ id, nome, categoria, ativo, valor, photos, ...rest }) {
+
+function Product({ id, nome, categoria, ativo, valor, photos, active, photo, ...rest }) {
   return (
     <>
       <Container {...rest}>
@@ -25,7 +26,10 @@ function Product({ id, nome, categoria, ativo, valor, photos, ...rest }) {
         <p>R$ {valor}</p>
       </Container>
 
-      <ModalProduct />
+      <ModalProduct
+        photo={photo}
+        actived={active}
+      />
     </>
   );
 }
