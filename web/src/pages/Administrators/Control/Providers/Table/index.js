@@ -63,7 +63,8 @@ export default function Table() {
             ),
           }}
           options={{
-            actionsColumnIndex: -1
+            actionsColumnIndex: -1,
+            exportButton: true
           }}
         />
       </Container>

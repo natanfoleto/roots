@@ -37,7 +37,8 @@ export default function Table() {
           columns={columns}
           data={logs}
           options={{
-            actionsColumnIndex: -1
+            actionsColumnIndex: -1,
+            exportButton: true
           }}
         />
       </Container>

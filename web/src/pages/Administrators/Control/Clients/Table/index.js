@@ -27,7 +27,6 @@ export default function Table() {
     { title: 'Email', field: 'email' },
     { title: 'CPF', field: 'cpf' },
     { title: 'Data de Nascimento', field: 'data_nasc' },
-
   ];
 
   return (
@@ -53,7 +52,8 @@ export default function Table() {
             ),
           }}
           options={{
-            actionsColumnIndex: -1
+            actionsColumnIndex: -1,
+            exportButton: true
           }}
         />
       </Container>

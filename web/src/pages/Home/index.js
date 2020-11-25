@@ -79,7 +79,6 @@ export default function Home() {
               photos={product.photos}
             />
           ))}
-
         </ul>
       </Products>
 

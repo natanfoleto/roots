@@ -4,23 +4,29 @@ import PropTypes from 'prop-types';
 
 import { Container } from './styles';
 
+import ModalProduct from '../ModalProduct';
+
 function Product({ id, nome, categoria, ativo, valor, photos, ...rest }) {
   return (
-    <Container {...rest}>
-      <li>
-        <button>
-          <img
-            className="d-block w-100"
-            src={photos.length > 0 ? photos[0].url : 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQqvvCCFRAASaxwrYf-Gm73LgEezxHjqM9IIw&usqp=CAU'}
-            alt="First slide"
-          />
-        </button>
-      </li>
+    <>
+      <Container {...rest}>
+        <li>
+          <button>
+            <img
+              className="d-block w-100"
+              src={photos.length > 0 ? photos[0].url : 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQqvvCCFRAASaxwrYf-Gm73LgEezxHjqM9IIw&usqp=CAU'}
+              alt="First slide"
+            />
+          </button>
+        </li>
 
-      <Link to="/">{nome}</Link>
+        <Link to="/">{nome}</Link>
 
-      <p>R$ {valor}</p>
-    </Container>
+        <p>R$ {valor}</p>
+      </Container>
+
+      <ModalProduct />
+    </>
   );
 }
 
